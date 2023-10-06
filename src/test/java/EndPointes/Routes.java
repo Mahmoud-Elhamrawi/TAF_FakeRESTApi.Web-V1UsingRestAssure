@@ -7,6 +7,8 @@ public class Routes {
        //Activities
     public static String createActivity_url =base_url+ "/Activities";
     public static String ReadActivity_url =base_url+"/Activities/{id}";
+
+    public static String ReadAllActivity_url =base_url+"/Activities";
     public static String updateActivity_url =base_url+"/Activities/{id}";
     public static String deleteActivity_url =base_url+"/Activities/{id}";
 

@@ -26,7 +26,7 @@ public class ActivitiesTCWithFakerData {
     }
 
     @Test(priority = 0)
-    public  void testPost()
+    public  void testPostActivity()
     {
         Response postActivityRes = ActivitiesEndPoints.postActivity(activityPojo)  ;
         postActivityRes.then().log().all();
@@ -36,22 +36,19 @@ public class ActivitiesTCWithFakerData {
 
 
     @Test(priority = 1)
-    public void testGet()
-    {
+    public void testGetActivity() throws InterruptedException {
 
-        Response getActivityRes = ActivitiesEndPoints.getActivity(this.activityPojo.getId());
-
+        Response getActivityRes =  ActivitiesEndPoints.getActivity(this.activityPojo.getId());
         getActivityRes.then().log().all();
-
-        Assert.assertEquals(getActivityRes.statusCode() , 200);
+        Assert.assertEquals(getActivityRes.statusCode(),200);
     }
 
     @Test(priority = 2)
-    public void testUpdate()
+    public void testUpdateActivity()
     {
         activityPojo.setTitle(faker.book().title());
         activityPojo.setDueDate("2023-08-07T14:49:16.134Z");
-        activityPojo.setCompleted(true);
+        activityPojo.setCompleted(false);
 
 
         Response UpdateActivityRes = ActivitiesEndPoints.updateActivity(this.activityPojo.getId() , activityPojo);
@@ -61,7 +58,7 @@ public class ActivitiesTCWithFakerData {
     }
 
     @Test(priority = 3)
-    public void testdelete()
+    public void testDeleteActivity()
     {
         Response deleteActivityRes = ActivitiesEndPoints.deleteActivity(this.activityPojo.getId());
         deleteActivityRes.then().log().all();

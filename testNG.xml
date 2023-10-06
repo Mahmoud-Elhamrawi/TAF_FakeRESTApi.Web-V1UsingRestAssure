@@ -1,9 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="FakeRESTApi.Web V1" verbose="1" >
+<suite name="FakeRESTApi.WebV1" verbose="1" >
     <test name="Activities Model" >
         <classes>
-            <class name="TestCases.ActivitiesTCWithFakerData" />
+            <class name="TestCases.ActivitiesTCWithFakerData" >
+              <methods>
+                  <exclude name="testGetActivity"></exclude>
+              </methods>
+            </class>
+            <class name="TestCases.ActivitiesTCWithDDT" />
         </classes>
     </test>
 

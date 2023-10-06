@@ -23,14 +23,28 @@ public class ActivitiesEndPoints {
 
     public static  Response getActivity(int idActivity)
     {
+
         Response activityReadRes = given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .pathParam("id",idActivity)
-                .when().get(Routes.ReadActivity_url) ;
+
+                 .pathParam("id",idActivity)
+                 .when().get(Routes.ReadActivity_url) ;
 
         return activityReadRes ;
     }
+
+
+    public static  Response getAllActivity()
+    {
+
+        Response activityReadRes = given()
+
+
+                .when().get(Routes.ReadAllActivity_url) ;
+
+        return activityReadRes ;
+    }
+
+
     public static  Response updateActivity(int idActivity ,ActivityPojo payload )
     {
         Response activityUpdateRes = given()
